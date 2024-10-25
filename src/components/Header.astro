@@ -1,0 +1,25 @@
+<header class="flex justify-center items-center py-5 text-white top-0 z-50 fixed w-full">
+  <nav class="flex gap-x-12 font-medium">
+    <a href="#experiencia" aria-label="experiencia">Experiencia</a>
+    <a href="#proyectos" aria-label="proyectos">Proyectos</a>
+    <a href="#sobre-mi" aria-label="sobre-mi">Sobre mi</a>
+    <a href="mailto:patricio.mora99@gmail.com" aria-label="contacto">Contacto</a>
+  </nav>
+</header>
+
+<style>
+  header {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadown {
+    0% {
+      @apply bg-neutral-900/30;
+    }
+    to {
+      @apply shadow-lg ring-1 backdrop-blur ring-white/30 bg-neutral-900/30;
+    }
+  }
+</style>

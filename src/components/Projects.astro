@@ -1,0 +1,97 @@
+---
+import GitHub from "../icons/GitHub.astro";
+import Link from "../icons/Link.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import React from "../icons/React.astro";
+import LinkButton from "./ui/LinkButton.astro";
+import TypeScript from "../icons/TypeScript.astro";
+
+const TAGS = {
+  TYPESCRIPT: {
+    name: "TypeScript",
+    icon: TypeScript,
+  },
+  REACT: {
+    name: "React",
+    icon: React,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    icon: Tailwind,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Password Generator",
+    description:
+      "Aplicación que genera contraseñas. Permite ajustar la longitud, incluir letras mayúsculas, minúsculas, números y símbolos.",
+    url: "https://password-generator-patox128.vercel.app/",
+    github: "https://github.com/Patox128/password-generator",
+    image: "/projects/password_generator.webp",
+    tech: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+  },
+  {
+    title: "Age Calculator",
+    description:
+      "Calculadora de edad que permite a los usuarios ingresar su fecha de nacimiento y obtener el tiempo en años, meses y días.",
+    url: "https://age-calculator-patox128.vercel.app/",
+    github: "https://github.com/Patox128/fm-age-calculator",
+    image: "/projects/age-calculator.webp",
+    tech: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+  },
+  {
+    title: "Clipboard Landing Page",
+    description: "Desafio de Frontend Mentor. Landing page de una aplicación de gestión de portapapeles.",
+    url: "https://clipboard-landing-page-patox128.vercel.app/",
+    github: "https://github.com/Patox128/clipboard-landing-page",
+    image: "/projects/clipboard_landing.webp",
+    tech: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ title, description, image, url, github, tech }) => (
+      <article class="flex flex-col space-y-8 space-x-0 md:flex-row md:space-y-0 md:space-x-8 text-white group">
+        <div class="w-full md:w-1/2">
+          <div class="h-56 md:h-72 relative transition-all duration-500 ease-in-out overflow-clip rounded-xl border-2 border-gray-800 hover:border-gray-700">
+            <img src="/projects/back.webp" alt="background" class="absolute z-0 w-full h-full" />
+            <img
+              src={image}
+              alt="Age calculator"
+              class="w-full h-full object-cover z-10 relative translate-x-[10%] translate-y-[10%] group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 ease-in-out"
+            />
+          </div>
+        </div>
+        <div class="w-full md:w-1/2">
+          <h3 class="text-2xl font-bold text-white">{title}</h3>
+          <div class="flex flex-wrap mt-2">
+            <p class="text-gray-300/90">{description}</p>
+          </div>
+          <div class="flex mt-4 gap-x-4 flex-wrap gap-y-4">
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+            </LinkButton>
+            <LinkButton href={url}>
+              <Link class="size-6" />
+              Preview
+            </LinkButton>
+          </div>
+          <div class="mt-4">
+            <ul class="flex gap-4 flex-wrap">
+              {tech.map(({ name, icon: Icon }) => (
+                <li class="flex text-xs items-center gap-2 rounded-full border border-gray-600 px-2 py-1 bg-neutral-800/30 transition-all">
+                  <Icon class="size-4" />
+                  {name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

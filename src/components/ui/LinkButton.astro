@@ -1,0 +1,60 @@
+---
+const { href } = Astro.props;
+---
+
+<a href={href} target="_blank" role="link" class="card-wrapper">
+  <div class="card-content">
+    <slot />
+  </div>
+</a>
+
+<style>
+  .card-wrapper {
+    border-radius: 6px;
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    border-width: 1px;
+    border-color: #4b5563;
+  }
+
+  .card-wrapper:hover {
+    border-style: none;
+    padding: 1px;
+  }
+
+  .card-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -1000%;
+    /* background: conic-gradient(from 90deg at 50% 50%, #a770ef, 0deg, #3d2958, 340deg, #a770ef); */
+    /* background: conic-gradient(from 90deg at 50% 50%, #a770ef 0deg, #3d2958 180deg, #a770ef 360deg); */
+    /* background: conic-gradient(from 0deg at 50% 50%, #3d2958 0deg, #a770ef 10deg, #3d2958 40deg); */
+    /* animation: spin 2s linear infinite; */
+  }
+
+  .card-wrapper:hover::before {
+    background: conic-gradient(from 0deg at 50% 50%, #3d2958 0deg, #a770ef 40deg, #3d2958 90deg);
+    animation: spin 2s linear infinite;
+  }
+
+  .card-content {
+    background-color: #1f2937;
+    color: white;
+    border-radius: 6px;
+    padding: 12px 8px;
+    display: inline-flex;
+    place-items: center;
+    font-size: 14px;
+    position: relative;
+    gap: 8px;
+    font-size: 1rem /* 16px */;
+    line-height: 1.5rem /* 24px */;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
