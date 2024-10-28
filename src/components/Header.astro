@@ -1,9 +1,11 @@
 <header class="flex justify-center items-center py-5 text-white top-0 z-50 fixed w-full">
   <nav class="flex gap-x-12 font-medium">
-    <a href="#experiencia" aria-label="experiencia">Experiencia</a>
-    <a href="#proyectos" aria-label="proyectos">Proyectos</a>
-    <a href="#sobre-mi" aria-label="sobre-mi">Sobre mi</a>
-    <a href="mailto:patricio.mora99@gmail.com" aria-label="contacto">Contacto</a>
+    <a href="#experiencia" aria-label="experiencia" class="transition hover:text-purple-500">Experiencia</a>
+    <a href="#proyectos" aria-label="proyectos" class="transition hover:text-purple-500">Proyectos</a>
+    <a href="#sobre-mi" aria-label="sobre-mi" class="transition hover:text-purple-500">Sobre mi</a>
+    <a href="mailto:patricio.mora99@gmail.com" aria-label="contacto" class="transition hover:text-purple-500"
+      >Contacto</a
+    >
   </nav>
 </header>
 
@@ -19,7 +21,54 @@
       @apply bg-neutral-900/30;
     }
     to {
-      @apply shadow-lg ring-1 backdrop-blur ring-white/30 bg-neutral-900/30;
+      @apply ring-1 backdrop-blur ring-white/30 bg-neutral-900/30;
     }
   }
 </style>
+
+<script>
+  const section = document.querySelectorAll("section");
+  const nav = document.querySelectorAll("header nav a");
+  // Ejemplo con IntersectionObserver
+  // const observerOptions = {
+  //   root: null,
+  //   rootMargin: "0px", // En cuanto se vea el elemento
+  //   threshold: 0.3, // porcentaje de visibilidad
+  // };
+
+  // const observer = new IntersectionObserver((entries) => {
+  //   entries.forEach((entry) => {
+  //     const { isIntersecting } = entry;
+  //     if (isIntersecting) {
+  //       console.log("isIntersecting", entry.target.id);
+  //       nav.forEach((item) => {
+  //         if (item.getAttribute("aria-label") == entry.target.id) {
+  //           item.classList.add("text-purple-500");
+  //         } else {
+  //           item.classList.remove("text-purple-500");
+  //         }
+  //       });
+  //     }
+  //   });
+  // }, observerOptions);
+
+  // section.forEach((section) => {
+  //   observer.observe(section);
+  // });
+
+  window.onscroll = () => {
+    section.forEach((section) => {
+      const top = window.scrollY;
+      const { offsetHeight, offsetTop } = section;
+      if (top > offsetTop && top < offsetTop + offsetHeight) {
+        nav.forEach((item) => {
+          if (item.getAttribute("aria-label") == section.id) {
+            item.classList.add("text-purple-500");
+          } else {
+            item.classList.remove("text-purple-500");
+          }
+        });
+      }
+    });
+  };
+</script>
