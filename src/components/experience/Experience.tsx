@@ -32,7 +32,7 @@ export const Experience = () => {
             top: "0.5rem",
           }}
         >
-          <h3 className="text-xl font-bold text-yellow-400">{experience.position}</h3>
+          <h3 className="text-xl font-bold text-[#a770ef]">{experience.position}</h3>
           <h4 className="font-semibold text-xl text-white">
             {`Cliente: ${experience.client} - Proyecto ${experience.project}`}
           </h4>
