@@ -7,19 +7,26 @@ import Projects from "../components/Projects.astro";
 import GitHub from "../icons/GitHub.astro";
 import LinkedIn from "../icons/LinkedIn.astro";
 import Mail from "../icons/Mail.astro";
-import Badge from "../components/ui/Badge.astro";
 import Technologies from "../components/Technologies.astro";
+import File from "../icons/File.astro";
 ---
 
 <Layout title="Porfolio de patricio - Desarrollador y Programador Web" description="Hola">
   <main class="px-4">
     <SectionContainer className="pt-36">
-      <h1 class="text-white text-5xl font-bold pb-4">Hey, soy Patricio Mora</h1>
-      <p class="mt-6 text-xl text-white">
-        +2 años de experiencia, <strong class="text-yellow-500">Desarrollador de Software</strong>, creacion de
-        aplicaciones web y mobile.
-      </p>
+      <div class="max-w-prose">
+        <p class="font-semibold text-2xl mb-2 leading-none text-purple-500">Hi, soy</p>
+        <h1 class="text-4xl font-bold sm:text-6xl text-white">Patricio Mora</h1>
+        <p class="text-xl text-white mt-6">
+          <strong class="text-[#a770ef]">Desarrollador de Software</strong> con más de 2 años de experiencia en desarrollo
+          de aplicaciones web y móviles. Me especializo en crear interfaces intuitivas y escalables.
+        </p>
+      </div>
       <nav class="flex flex-wrap gap-4 mt-8">
+        <SocialPill href="/cv_patricio_mora_vega.pdf">
+          <File class="size-6" />
+          Descargar CV
+        </SocialPill>
         <SocialPill href="https://linkedin.com/in/midudev">
           <LinkedIn class="size-6" />
           LinkedIn
@@ -30,7 +37,7 @@ import Technologies from "../components/Technologies.astro";
         </SocialPill>
         <SocialPill href="mailto:patricio.mora99@gmail.com">
           <Mail class="size-6" />
-          patricio.mora99@gmail.com
+          Email
         </SocialPill>
       </nav>
     </SectionContainer>
@@ -38,7 +45,7 @@ import Technologies from "../components/Technologies.astro";
       <h2 class="text-white flex items-center mb-3 text-3xl font-semibold gap-x-3">Experiencia Laboral</h2>
       <Experience client:load />
     </SectionContainer>
-    <SectionContainer id="proyectos" className="mt-24 scroll-m-20">
+    <SectionContainer id="proyectos" className="pt-36 -scroll-m-10">
       <h2 class="text-white flex items-center mb-6 text-3xl font-semibold gap-x-3">Proyectos</h2>
       <Projects />
     </SectionContainer>
